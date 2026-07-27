@@ -118,11 +118,23 @@ public class ArrayDsa {
 
         }
     }
+
+    public static void selectionSort(int[] arr){
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0 && arr[j] < arr[j-1] ; j--) {
+                
+                    int temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                
+            }
+        }
+    }
     
     public static void main(String[] args){
-        int[] arr = {9,8,7,6,5};
+        int[] arr = {5,4,3,2,1};
         
-        bubbleSort(arr);
+        selectionSort(arr);
 
         for (int i : arr) {
             System.out.print(i+" ");
