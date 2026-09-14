@@ -22,15 +22,12 @@ def binary_search(target,arr):
     return -1
         
 def reverse_Arry(arr):
-    for left in range(len(arr)):
-        if left > (len(arr)/2)-1:
-            break
-        temp = arr[len(arr)-1-left]
-        arr[len(arr)-1-left] = arr[left]
-        arr[left] = temp
+    for left in range(len(arr) // 2):
+        right = len(arr)-1-left
+        arr[left],arr[right] = arr[right],arr[left]
 
 
-arr_list = [10, 20, 30, 40, 50, 60]
+arr_list = [10, 20, 30, 40, 50, 60,70]
 
 # index = binary_search(65,arr_list)
 reverse_Arry(arr_list)
