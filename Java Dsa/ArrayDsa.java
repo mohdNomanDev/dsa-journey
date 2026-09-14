@@ -20,10 +20,26 @@ public class ArrayDsa {
         return largest;
     }
 
+    public static int binarySearch(int target,int[] nums){
+        int s = 0 , e = nums.length-1;
+
+        while(e > s){
+            int m = (s+e)/2;
+            if(nums[m] == target) return m;
+            else{
+                if(target > nums[m]) s = m+1;
+                else e = m-1;
+            }
+        }
+
+        return -1;
+
+    }
+
     
     public static void main(String[] args){
-        int[] arr = {5, 12, 8, 20, 3, 15};
-        int index = largestInArray( arr);
+        int[] arr = {10, 20, 30, 40, 50, 60, 70};
+        int index = binarySearch( 90, arr);
         System.out.println(index);
     }
 }
