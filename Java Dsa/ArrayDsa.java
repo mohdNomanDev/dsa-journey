@@ -39,9 +39,9 @@ public class ArrayDsa {
     }
 
     public static void reverseArray(int[] arr){
-        for (int left = 0; left < (arr.length)/2; left++) {
-            int temp = arr[arr.length-1-left];
-            arr[arr.length-1-left] = arr[left];
+        for (int left = 0,right = arr.length-1; left < right; left++,right--) {
+            int temp = arr[right];
+            arr[right] = arr[left];
             arr[left] = temp;
         }
     }
