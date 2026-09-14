@@ -4,8 +4,15 @@ def linear_search(search,arr):
             return i
     return -1
 
-arr_list = [5, 12, 8, 20, 3, 15]
+def largest_Number(arr):
+    largest = arr[0]
+    for n in arr:
+        if n > largest:
+            largest = n
+    return largest
 
-index = linear_search(15,arr_list)
+arr_list = [5, 22, 8, 20, 3, 15]
+
+index = largest_Number(arr_list)
 
 print(index)
