@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ArrayDsa {
 
     public static int linearSearch(int search, int[] nums){
@@ -36,10 +38,22 @@ public class ArrayDsa {
 
     }
 
+    public static void reverseArray(int[] arr){
+        for (int left = 0; left < (arr.length)/2; left++) {
+            int temp = arr[arr.length-1-left];
+            arr[arr.length-1-left] = arr[left];
+            arr[left] = temp;
+        }
+    }
+
     
     public static void main(String[] args){
-        int[] arr = {10, 20, 30, 40, 50, 60, 70};
-        int index = binarySearch( 90, arr);
-        System.out.println(index);
+        int[] arr = {10, 20, 30, 40, 50, 60};
+        // int index = binarySearch( 90, arr);
+        // System.out.println(index);
+        reverseArray(arr);
+        for (int i : arr) {
+            System.out.print(i+" ");
+        }
     }
 }
