@@ -28,8 +28,8 @@ def reverse_Arry(arr):
 
 def pairs_in_array(arr):
     length = len(arr)
-    for i in range(length-2):
-        for j in range(i+1,length-1):
+    for i in range(length-1):
+        for j in range(i+1,length):
             print('(',arr[i],',',arr[j],')')
         print('\n')
 
