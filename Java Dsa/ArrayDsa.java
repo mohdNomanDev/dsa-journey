@@ -46,14 +46,21 @@ public class ArrayDsa {
         }
     }
 
+    public static void pairsInArray(int[] arr){
+        for (int i = 0; i < arr.length-1; i++) {
+            for (int j = i+1; j < arr.length; j++) {
+                System.out.print("(" + arr[i]+","+arr[j] + ")");
+            }
+            System.out.println();
+        }
+    }
+
     
     public static void main(String[] args){
         int[] arr = {10, 20, 30, 40, 50, 60};
         // int index = binarySearch( 90, arr);
         // System.out.println(index);
-        reverseArray(arr);
-        for (int i : arr) {
-            System.out.print(i+" ");
-        }
+        
+        pairsInArray(arr);
     }
 }
