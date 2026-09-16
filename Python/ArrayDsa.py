@@ -26,9 +26,14 @@ def reverse_Arry(arr):
         right = len(arr)-1-left
         arr[left],arr[right] = arr[right],arr[left]
 
+def pairs_in_array(arr):
+    length = len(arr)
+    for i in range(length-2):
+        for j in range(i+1,length-1):
+            print('(',arr[i],',',arr[j],')')
+        print('\n')
 
 arr_list = [10, 20, 30, 40, 50, 60,70]
 
 # index = binary_search(65,arr_list)
-reverse_Arry(arr_list)
-print(arr_list)
+pairs_in_array(arr_list)
