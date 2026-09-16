@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class ArrayDsa {
 
     public static int linearSearch(int search, int[] nums){
