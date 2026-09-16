@@ -33,7 +33,15 @@ def pairs_in_array(arr):
             print('(',arr[i],',',arr[j],')')
         print('\n')
 
+def sub_array(arr):
+    length = len(arr)
+    for i in range(length):
+        for j in range(i+1,length):
+            print(arr[i:j])
+
+
+
 arr_list = [10, 20, 30, 40, 50, 60,70]
 
 # index = binary_search(65,arr_list)
-pairs_in_array(arr_list)
+sub_array(arr_list)
