@@ -39,9 +39,17 @@ def sub_array(arr):
         for j in range(i+1,length):
             print(arr[i:j])
 
+def max_sub_array(arr):
+    length = len(arr)
+    m = arr[0]
+    for i in range(length):
+        for j in range(i+1,length):            
+            m = max(m,sum(arr[i:j+1]))
+            print(f"{arr[i:j+1]} = {sum(arr[i:j+1])}",end = "\t")
+        print()
 
+    print(f"Maximum : {m}")
 
-arr_list = [10, 20, 30, 40, 50, 60,70]
+arr_list = [2, -1, 3, -4, 5]
 
-# index = binary_search(65,arr_list)
-sub_array(arr_list)
+max_sub_array(arr_list)
