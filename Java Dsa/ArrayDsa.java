@@ -69,29 +69,41 @@ public class ArrayDsa {
         }
     }
 
-    public static void maxSubArray(int[] arr){
-        int max = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            
-            for (int j = i; j < arr.length; j++) {
-                int sum = 0;
-                System.out.print('(');
-                for (int k = i; k <= j; k++){
-                    System.out.print(arr[k]);
-                    System.out.print(',');
-                    sum += arr[k];
-                }
-                max = Math.max(max, sum);
-                System.out.print(") = "+sum+"\t");
-                
+   public static void maxSubArray(int[] arr) {
+
+    int[] prefix = new int[arr.length];
+
+    int max = arr[0];
+
+    // Create prefix array
+    prefix[0] = arr[0];
+
+    for (int i = 1; i < arr.length; i++) {
+        prefix[i] = arr[i] + prefix[i - 1];
+    }
+
+    // Find maximum subarray sum
+    for (int i = 0; i < arr.length; i++) {
+
+        for (int j = i; j < arr.length; j++) {
+
+            int sum;
+
+            if (i == 0) {
+                sum = prefix[j];
+            } else {
+                sum = prefix[j] - prefix[i - 1];
             }
-            System.out.println();
-            System.out.println("Maximum : "+max);
+
+            max = Math.max(max, sum);
         }
     }
+
+    System.out.println("Maximum is " + max);
+}
     
     public static void main(String[] args){
-        int[] arr = {2, -1, 3, -4, 5};
+        int[] arr = {2, -1, 3, -2, 4};
         // int index = binarySearch( 90, arr);
         // System.out.println(index);
         
