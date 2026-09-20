@@ -71,41 +71,20 @@ public class ArrayDsa {
 
    public static void maxSubArray(int[] arr) {
 
-    int[] prefix = new int[arr.length];
-
-    int max = arr[0];
-
-    // Create prefix array
-    prefix[0] = arr[0];
-
-    for (int i = 1; i < arr.length; i++) {
-        prefix[i] = arr[i] + prefix[i - 1];
-    }
-
-    // Find maximum subarray sum
+    int cs = 0, ms = 0;
+    
     for (int i = 0; i < arr.length; i++) {
-
-        for (int j = i; j < arr.length; j++) {
-
-            int sum;
-
-            if (i == 0) {
-                sum = prefix[j];
-            } else {
-                sum = prefix[j] - prefix[i - 1];
-            }
-
-            max = Math.max(max, sum);
-        }
+        cs += arr[i];
+        if(cs < 0) cs = 0;
+        ms = Math.max(ms, cs);
+        
     }
 
-    System.out.println("Maximum is " + max);
+    System.out.println("Max : "+ms);
 }
     
     public static void main(String[] args){
-        int[] arr = {2, -1, 3, -2, 4};
-        // int index = binarySearch( 90, arr);
-        // System.out.println(index);
+        int[] arr = {-2,-3,4,-1,-2,1,5,-3};
         
         maxSubArray(arr);
     }
