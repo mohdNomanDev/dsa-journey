@@ -48,6 +48,29 @@ def max_sub_array(arr):
 
     print(f"max : {ms}")
 
-arr_list = [-2,-3,4,-1,-2,1,5,-3]
+def trapped_water(height):
+    l = len(height)
+    ml = []
+    mr = []
+    ml.append(height[0])
+    mr.append(height[l-1])
+    for i in range(1,l):
+        ml.append(max(ml[i-1],height[i]))
+        mr.append( max(mr[i-1], height[l -1 -i]))
 
-max_sub_array(arr_list)
+    mr.reverse()
+    sum = 0
+
+    for h,l,r in zip(height,ml,mr):
+        wt = min(l,r) - h
+        sum = sum + wt
+
+    print(f"Total water trapped: {sum}")
+
+
+
+
+
+arr_list = [4, 2, 0, 3, 2, 5]
+
+trapped_water(arr_list)
