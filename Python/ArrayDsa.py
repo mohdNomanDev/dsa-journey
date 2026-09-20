@@ -43,8 +43,7 @@ def max_sub_array(arr):
     cs = ms = 0
 
     for el in arr:
-        cs = cs + el
-        if cs < 0: cs = 0
+        cs = max(cs + el, 0)
         ms = max(ms,cs)
 
     print(f"max : {ms}")
