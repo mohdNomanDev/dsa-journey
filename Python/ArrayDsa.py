@@ -40,16 +40,15 @@ def sub_array(arr):
             print(arr[i:j])
 
 def max_sub_array(arr):
-    length = len(arr)
-    m = arr[0]
-    for i in range(length):
-        for j in range(i+1,length):            
-            m = max(m,sum(arr[i:j+1]))
-            print(f"{arr[i:j+1]} = {sum(arr[i:j+1])}",end = "\t")
-        print()
+    cs = ms = 0
 
-    print(f"Maximum : {m}")
+    for el in arr:
+        cs = cs + el
+        if cs < 0: cs = 0
+        ms = max(ms,cs)
 
-arr_list = [2, -1, 3, -4, 5]
+    print(f"max : {ms}")
+
+arr_list = [-2,-3,4,-1,-2,1,5,-3]
 
 max_sub_array(arr_list)
