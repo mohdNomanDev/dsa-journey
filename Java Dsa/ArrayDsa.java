@@ -82,10 +82,32 @@ public class ArrayDsa {
 
     System.out.println("Max : "+ms);
 }
+
+    public static void trapWater(int[] height){
+        int len = height.length;
+        int[] ml = new int[len];
+        int[] mr = new int[len];
+
+        ml[0] = height[0];
+        mr[len - 1] = height[len - 1];
+
+        for (int i = 1; i < mr.length; i++) {
+            ml[i] = Math.max(ml[i-1], height[i]);
+            mr[len - 1 - i] = Math.max(mr[len - i], height[len -1 -i]);
+        }
+
+        int sum = 0;
+        for (int i = 0; i < len; i++) {
+            int waterTrapped = Math.min(ml[i],mr[i]) - height[i];
+            sum += waterTrapped;
+        }
+
+        System.out.println("Total water trapped: "+sum);
+    }
     
     public static void main(String[] args){
-        int[] arr = {-2,-3,4,-1,-2,1,5,-3};
+        int[] arr = {4, 2, 0, 3, 2, 5};
         
-        maxSubArray(arr);
+        trapWater(arr);
     }
 }
