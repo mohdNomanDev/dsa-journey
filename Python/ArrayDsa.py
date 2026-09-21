@@ -68,9 +68,18 @@ def trapped_water(height):
     print(f"Total water trapped: {sum}")
 
 
+def bubble_sort(arr):
+    l = len(arr)
+    for i in range(l - 1):
+        for j in range(l - 1 -i):
+            if arr[j] > arr[j+1]:
+                temp = arr[j] 
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
 
 
+arr_list = [9,8,6,7,5]
 
-arr_list = [4, 2, 0, 3, 2, 5]
+bubble_sort(arr_list)
 
-trapped_water(arr_list)
+print(arr_list)
