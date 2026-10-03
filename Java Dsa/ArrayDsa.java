@@ -206,11 +206,9 @@ public class ArrayDsa {
     public static void diagonalMatrix(int[][] arr){
         int pd = 0, sd = 0;
         for (int i = 0; i < arr.length; i++) {
-            if(i % 2 == 0){
-                pd += arr[i][i];
-            }
-            else{
-                pd += arr[i][i];
+
+            pd += arr[i][i];
+            if(i != arr.length-1-i){
                 sd += arr[arr.length - 1 -i][i];
             }
         }

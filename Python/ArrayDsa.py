@@ -124,6 +124,14 @@ def spiral_matrix(arr):
         er -= 1
         ec -= 1
 
+def daigonal_matrix(arr):
+    pd = sd = 0
+    l = len(arr)
+    for i in range(0, l):
+        pd = pd + arr[i][i]
+        if(i != l-1 -i):
+            sd = sd + arr[l-1 -i][i]
+    print(pd+sd)
 
 arr_list = [
     [1, 2, 3, 4],
@@ -132,6 +140,6 @@ arr_list = [
     [13, 14, 15, 16]
 ]
 
-spiral_matrix(arr_list)
+daigonal_matrix(arr_list)
 
 
