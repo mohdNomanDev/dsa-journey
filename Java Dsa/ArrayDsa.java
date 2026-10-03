@@ -217,10 +217,8 @@ public class ArrayDsa {
     }
 
     public static void searchMatrix(int[][] arr,int key){
-        int rl = arr.length, cl = arr[0].length;
-
-        int c = arr.length-1, r = 0;
-        while( c >= 0 && c < cl && r >=0 && r < rl){
+                int c = arr.length-1, r = 0;
+        while( c >= 0 && r < arr.length){
             if(key == arr[r][c]) {
                 System.out.println("Key Found");
                 return;

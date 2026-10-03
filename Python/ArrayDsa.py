@@ -133,6 +133,8 @@ def daigonal_matrix(arr):
             sd = sd + arr[l-1 -i][i]
     print(pd+sd)
 
+-
+
 arr_list = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
