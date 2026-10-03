@@ -101,27 +101,37 @@ def spiral_matrix(arr):
     sr = sc = 0
     er = ec = len(arr) - 1
 
-    while sr<er and sc<ec:
-        # first row
-        print(arr[sr][sc:ec+1])
+    while sr <= er and sc <= ec:
 
-        # last coloumn
-        print(arr[sr+1:er+1][ec])
+        # First row → left to right
+        for j in range(sc, ec + 1):
+            print(arr[sr][j], end=" ")
 
-        #last row
-        print(arr[er][ec-1:sc+1])
+        # Last column → top to bottom
+        for i in range(sr + 1, er + 1):
+            print(arr[i][ec], end=" ")
 
-        #first column
-        print(arr[er-1:sr+2][sc])
+        # Last row → right to left
+        for j in range(ec - 1, sc - 1, -1):
+            print(arr[er][j], end=" ")
 
-        sr = sr+1
-        sc = sc+1
-        er = er-1
-        ec = ec-1
+        # First column → bottom to top
+        for i in range(er - 1, sr, -1):
+            print(arr[i][sc], end=" ")
+
+        sr += 1
+        sc += 1
+        er -= 1
+        ec -= 1
 
 
-arr_list = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+arr_list = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
 
-#spiral_matrix(arr_list)
-print(arr_list[1][-2:-2])
+spiral_matrix(arr_list)
+
 
