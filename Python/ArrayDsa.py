@@ -77,9 +77,51 @@ def bubble_sort(arr):
                 arr[j] = arr[j+1]
                 arr[j+1] = temp
 
+def selection_sort(arr):
+    l = len(arr)
+    for i in range(l-1):
+        swap = i
+        for j in range(i+1,l):
+            if(arr[swap] > arr[j]):
+                swap = j
+        arr[swap],arr[i] = arr[i],arr[swap]
 
-arr_list = [9,8,6,7,5]
+def insertion_sort(arr):
+    l = len(arr)
+    for i in range(1,l):
+        insert = arr[i]
+        j = i-1
+        while j>=0 and insert < arr[j]:
+            arr[j+1] = arr[j]                            
+            j = j-1
+        
+        arr[j+1] = insert
 
-bubble_sort(arr_list)
+def spiral_matrix(arr):
+    sr = sc = 0
+    er = ec = len(arr) - 1
 
-print(arr_list)
+    while sr<er and sc<ec:
+        # first row
+        print(arr[sr][sc:ec+1])
+
+        # last coloumn
+        print(arr[sr+1:er+1][ec])
+
+        #last row
+        print(arr[er][ec-1:sc+1])
+
+        #first column
+        print(arr[er-1:sr+2][sc])
+
+        sr = sr+1
+        sc = sc+1
+        er = er-1
+        ec = ec-1
+
+
+arr_list = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+
+#spiral_matrix(arr_list)
+print(arr_list[1][-2:-2])
+

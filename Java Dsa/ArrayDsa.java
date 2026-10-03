@@ -120,24 +120,111 @@ public class ArrayDsa {
     }
 
     public static void selectionSort(int[] arr){
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = i; j > 0 && arr[j] < arr[j-1] ; j--) {
-                
-                    int temp = arr[j];
-                    arr[j] = arr[j-1];
-                    arr[j-1] = temp;
-                
-            }
+        for (int i = 0; i < arr.length-1; i++) {
+                int swap = i;
+                for (int j = i+1; j < arr.length; j++) {
+                    if(arr[swap] > arr[j]){
+                        swap = j;
+                    }
+                }
+                int temp = arr[swap];
+                arr[swap] = arr[i];
+                arr[i] = temp;
         }
     }
-    
-    public static void main(String[] args){
-        int[] arr = {5,4,3,2,1};
-        
-        selectionSort(arr);
+
+    public static void insertionSort(int[] arr){
+        for (int curr = 1; curr < arr.length; curr++) {
+            int insert = arr[curr];
+            int prev = curr-1;
+            for (; prev >= 0 && insert < arr[prev]; prev--) {
+                    arr[prev+1] = arr[prev];                                  
+                                        
+            }            
+            
+            arr[prev+1] = insert;
+            
+        }
+    }
+
+    public static void countingSort(int[] arr){
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            max = Math.max(max, arr[i]);
+        }
+
+        int[] count = new int[max+1];
 
         for (int i : arr) {
-            System.out.print(i+" ");
+            count[i]++;
         }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]+" = "+count[arr[i]]);
+        }
+    }
+
+    public static void spiralMatrix(int[][] arr){
+    
+
+        int sr, sc, er , ec ;
+        sr = sc = 0;
+        er = arr.length-1;
+        ec = arr[0].length-1;
+
+        while (sr <= er && sc <= ec) {
+
+            
+            // first row
+            for(int i = sc; i<= ec ; i++){
+                System.out.print(arr[sr][i]+"\t");
+            }
+
+            // last coloumn
+            for (int i = sr+1; i <= er; i++) {
+                System.out.print(arr[i][ec]+"\t");
+            }
+
+            // last row
+            for (int i = ec-1; i >= sc; i--) {
+                System.out.print(arr[er][i]+"\t");
+            }
+
+            //first column
+            for (int i = er-1; i >= sr+1; i--) {
+                System.out.print(arr[i][sc]+"\t");
+            }
+
+            sr++; sc++;
+            er--; ec--;
+            
+        }
+
+        
+    }
+
+    public static void diagonalMatrix(int[][] arr){
+        int pd = 0, sd = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(i % 2 == 0){
+                pd += arr[i][i];
+            }
+            else{
+                pd += arr[i][i];
+                sd += arr[arr.length - 1 -i][i];
+            }
+        }
+
+        System.err.println("Diagonal Matrix is "+(pd+sd));
+    }
+    
+    
+    public static void main(String[] args){
+        int[][] arr = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        
+        diagonalMatrix(arr);
+        
+
+        
     }
 }
