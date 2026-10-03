@@ -215,12 +215,31 @@ public class ArrayDsa {
 
         System.err.println("Diagonal Matrix is "+(pd+sd));
     }
+
+    public static void searchMatrix(int[][] arr,int key){
+        int rl = arr.length, cl = arr[0].length;
+
+        int c = arr.length-1, r = 0;
+        while( c >= 0 && c < cl && r >=0 && r < rl){
+            if(key == arr[r][c]) {
+                System.out.println("Key Found");
+                return;
+            }
+            else{
+                if(key > arr[r][c]) r++;
+                else c--;
+            }
+        }
+
+        System.out.println("Key Not Found");
+
+    }
     
     
     public static void main(String[] args){
         int[][] arr = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
         
-        diagonalMatrix(arr);
+        searchMatrix(arr, 17);
         
 
         
