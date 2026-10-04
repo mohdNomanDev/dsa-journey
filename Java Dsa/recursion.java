@@ -13,7 +13,13 @@ public class recursion {
         return n*fact(n-1);
     }
 
+    public static void fib(int n, int a, int b){
+        if(n < 1) return;
+        System.out.print(a+b+" ");
+        fib(--n, b, a+b);
+    }
+
     public static void main(String[] args) {
-        System.out.println(fact(5));
+        fib(20, -1, 1);
     }
 }
