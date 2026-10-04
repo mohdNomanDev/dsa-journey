@@ -19,7 +19,12 @@ public class recursion {
         fib(--n, b, a+b);
     }
 
+    public static int power(int m,int n){
+        if(n == 1) return m;
+
+        return power(m,n/2) * power(m, (n-n/2));
+    }
     public static void main(String[] args) {
-        fib(20, -1, 1);
+        System.out.println(power(3, 3));
     }
 }
