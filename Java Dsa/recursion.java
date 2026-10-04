@@ -22,9 +22,16 @@ public class recursion {
     public static int power(int m,int n){
         if(n == 1) return m;
 
-        return power(m,n/2) * power(m, (n-n/2));
+        int half = power(m, n/2);
+
+        if(n % 2 == 0){
+            return half * half;
+        }else{
+            return half * half * m;
+        }
+
     }
     public static void main(String[] args) {
-        System.out.println(power(3, 3));
+        System.out.println(power(2, 7));
     }
 }
