@@ -127,13 +127,12 @@ def spiral_matrix(arr):
 def daigonal_matrix(arr):
     pd = sd = 0
     l = len(arr)
-    for i in range(0, l):
+    for i in range( l):
         pd = pd + arr[i][i]
         if(i != l-1 -i):
             sd = sd + arr[l-1 -i][i]
     print(pd+sd)
 
--
 
 arr_list = [
     [1, 2, 3, 4],
