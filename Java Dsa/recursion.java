@@ -32,12 +32,30 @@ public class recursion {
 
     }
 
+    public static String removeDuplicates(String str){
+        StringBuilder stb = new StringBuilder("");
+        boolean[] map = new boolean[26];
+        removeDuplicates(str,0,stb,map);
+        return stb.toString();
+    }
+
+    public static void removeDuplicates(String str, int idx, StringBuilder stb, boolean[] map) {
+        if(idx >= str.length()) return;
+        char ch = str.charAt(idx);
+        if(!map['z' - ch]) {
+            stb.append(ch);
+            map['z' - ch] = true;
+        }
+        removeDuplicates(str,idx+1,stb,map);
+    }
+
+
     public static int tiling(int n){
         if(n == 0 || n == 1) return 1;
 
         return tiling(n-1) + tiling(n - 2);
     }
     public static void main(String[] args) {
-        System.out.println(tiling(4));
+        System.out.println(removeDuplicates("appnnacollege"));
     }
 }
