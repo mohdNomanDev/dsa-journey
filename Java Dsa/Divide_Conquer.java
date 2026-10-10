@@ -47,6 +47,38 @@ public class Divide_Conquer{
         
     }
 
+    public static void quickSort(int[] arr, int s, int e){
+        if(s >= e){
+            return;
+        }
+
+        // pivot index find
+        int pi = partition(arr, s,e);
+        quickSort(arr, s, pi-1);
+        quickSort(arr, pi+1, e);
+    }
+
+    public static int partition(int[] arr, int s, int e){
+        int pi = e;
+        int j = -1;
+
+        for (int i = 0; i < pi; i++) {
+
+            if(arr[i] < arr[pi]){
+                j++;
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        j++;
+        int temp = arr[pi];
+        arr[pi] = arr[j];
+        arr[j] = temp;
+
+        return j;
+    }
+
     public static void print(int[] arr, int s, int e) {
         for(int i = s; i <= e; i++) {
             System.out.print(arr[i]+" ");
@@ -54,8 +86,8 @@ public class Divide_Conquer{
         System.out.println();
     }
     public static void main(String[] args) {
-        int[] arr = {6,3,9,5,2,8};
-        mergeSort(arr, 0, arr.length-1);
+        int[] arr = {6,3,9,5,2,8,-2};
+        quickSort(arr, 0, arr.length-1);
 
         for (int i : arr) {
             System.out.print(i+" ");
