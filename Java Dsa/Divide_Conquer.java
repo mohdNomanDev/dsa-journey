@@ -85,12 +85,30 @@ public class Divide_Conquer{
         }
         System.out.println();
     }
-    public static void main(String[] args) {
-        int[] arr = {6,3,9,5,2,8,-2};
-        quickSort(arr, 0, arr.length-1);
 
-        for (int i : arr) {
-            System.out.print(i+" ");
+    public static int serachInRotatedArray(int[] arr,int key, int si, int ei){
+        if(si > ei) return -1;
+        int mid = (si+ei)/2;
+        if(arr[mid] == key){
+            return mid;
         }
+
+        
+        if(arr[si] <= key && key <= arr[mid]){
+            // search in line 1
+            return serachInRotatedArray(arr, key, si, mid-1);  
+        }
+        else{
+            // search in line 2
+            return serachInRotatedArray(arr, key, mid+1, ei);
+
+        }        
+    }
+    public static void main(String[] args) {
+        int[] arr = {6, 7, 8, 9, 1, 2, 3, 4, 5};
+        int index = serachInRotatedArray(arr, 2, 0, arr.length-1);
+
+        System.out.println(index);
+        
     }
 }
